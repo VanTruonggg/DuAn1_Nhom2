@@ -46,7 +46,7 @@ public class RandomStringGenerator {
 
         // Kết hợp các chữ số cuối cùng và chuỗi ngẫu nhiên
 //        String result = formattedDateTime + randomString.toString();
-        String result = formattedDateTime;
+        String result = formattedDateTime + randomString.toString();
 
         return prefix+result;
     }

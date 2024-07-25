@@ -14,16 +14,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Ca1
+ * @author Ca1d
  */
 public class HandleHinhAnh {
-
-    public static void setImg(JLabel jLabel, String relativePath) {
+    public static int WIDTH, HEIGHT;
+    public static void setImg(JLabel jLabel, String relativePath, int width, int height) {
         ImageIcon imageIcon = new ImageIcon(relativePath);
         Image image = imageIcon.getImage();
 
         // Thay đổi kích thước của ảnh
-        Image scaledImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH); // Chỉnh lại kích thước ảnh
+        Image scaledImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH); // Chỉnh lại kích thước ảnh
 
         // Tạo lại ImageIcon từ ảnh đã thay đổi kích thước
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -48,7 +48,7 @@ public class HandleHinhAnh {
             if (startIndex != -1) {
                 // Extract the substring from the keyword to the end
                 String extractedPath = filePath.substring(startIndex);
-                setImg(jLabel, extractedPath);
+                setImg(jLabel, extractedPath, WIDTH, HEIGHT);
                 return extractedPath;
             } else {
                 System.out.println("Keyword not found in the given path.");

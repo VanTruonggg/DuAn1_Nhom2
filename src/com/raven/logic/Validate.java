@@ -38,12 +38,21 @@ public class Validate {
     
     public void checkNumber(String label, String number) {
         try {
-            Integer.parseInt(number);
+            Double.parseDouble(number);
         } catch (Exception e) {
             if (!number.isEmpty()) {
                 listWarning.put(label, label + " chỉ được chứa số");
             }
             chuoiHopLe = false;
+        }
+    }
+    
+    private void checkNhoHon0(String label, String number) {
+        try {
+            if ( Double.parseDouble(number) <= 0 ) {
+                listWarning.put(label, label + " phải lớn hơn 0");
+            }
+        } catch (Exception e) {
         }
     }
 
